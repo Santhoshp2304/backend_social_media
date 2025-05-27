@@ -4,11 +4,13 @@ const app = express();
 const mongoose = require('mongoose');
 require('dotenv').config();
 const userRoutes = require('./routes/user');
+const postRoutes = require('./routes/post');
 
 //middleware
 app.use(express.json());
 app.use(cors());
 app.use('/user',userRoutes)
+app.use('/post',postRoutes);
 
 //connecting mongodb
 mongoose.connect(process.env.MONGODB).then(() =>{
